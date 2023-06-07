@@ -271,8 +271,18 @@ def loops_7():
     lots of diagrams!
     """
 
-    
-    return None
+    pyramid = []
+    for i in range(5):
+        row = []
+        for k in range(4-i):
+            row.append(' ')
+        for h in range(2*i+1):
+            row.append('*')
+        for k in range(4-i):
+            row.append(' ')
+        pyramid.append(row)
+
+    return pyramid
 
 
 def little_printer(some_kind_of_list, exercise_name):
