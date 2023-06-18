@@ -17,8 +17,14 @@ def loop_ranger(start, stop=None, step=1):
     Look up for how range() works in the python docs. You could  answer this
     with just the range function, but we'd like you to do it the long way.
     """
-    return None
 
+    step_list = []
+
+    while start < stop:
+        step_list.append(start)
+        start = start + step
+
+    return step_list
 
 def two_step_ranger(start, stop):
     """Make a range that steps by 2.
@@ -28,7 +34,13 @@ def two_step_ranger(start, stop):
 
     You can either reuse loop_ranger, or the range function that in the standard library
     """
-    return None
+    two_step = []
+
+    for i in range(start, stop, 2):
+        two_step.append(i)
+
+    return two_step
+
 
 
 def stubborn_asker(low, high):
@@ -39,7 +51,18 @@ def stubborn_asker(low, high):
 
     Look up the docs for a function called "input"
     """
-    return None
+
+
+    number = int(input('Enter a number between ' + str(low) + ' and ' + str(high) + ' : '))
+
+    while number < low  or number > high:
+        if low < number < high:
+            break
+        else:
+            number = int(input('Enter a number between ' + str(low) + ' and ' + str(high) + ' : '))
+        
+    print('Good job')
+
 
 
 def not_number_rejector(message):
@@ -49,7 +72,14 @@ def not_number_rejector(message):
     (e.g. "cow", "six", "8!") then throw it out and ask for an actual number.
     When you do get a number, return it.
     """
-    return None
+    number = input('Please enter a number: ')
+    while number.isdigit() == False: 
+        if number.isdigit() == True:
+            break
+        else:
+            number = input('Please enter a number: ')
+    
+    return number
 
 
 def super_asker(low, high):
@@ -58,7 +88,25 @@ def super_asker(low, high):
     Combine what you learnt from stubborn_asker and not_number_rejector
     to make a function that does it all!
     """
-    return None
+
+    number = input('Please enter a number: ')
+    while number.isdigit() == False: 
+        if number.isdigit() == True:
+            break
+        else:
+            number = input('Please enter a number: ')
+    
+    number = int(number)
+    
+    while number < low  or number > high:
+        if low < number < high:
+            break
+        else:
+            number = int(input('Enter a number between ' + str(low) + ' and ' + str(high) + ' : '))
+        
+    print('Good job')
+
+
 
 
 if __name__ == "__main__":
@@ -69,7 +117,7 @@ if __name__ == "__main__":
     # NOTE: because some of these take user input you can't run them from
 
     print("\nloop_ranger", loop_ranger(1, 10, 2))
-    print("\ntwo_step_ranger", two_step_ranger(1, 10))
+    print("\ntwo_step_ranger", two_step_ranger(2, 16))
     print("\nstubborn_asker")
     stubborn_asker(30, 45)
     print("\nnot_number_rejector")
