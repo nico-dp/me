@@ -89,15 +89,14 @@ def super_asker(low, high):
     to make a function that does it all!
     """
 
-    number = input('Please enter a number: ')
     while number.isdigit() == False: 
         if number.isdigit() == True:
             break
         else:
             number = input('Please enter a number: ')
     
-    number = int(number)
-    
+    number = int(input('Enter a number between ' + str(low) + ' and ' + str(high) + ' : '))
+
     while number < low  or number > high:
         if low < number < high:
             break
@@ -105,6 +104,9 @@ def super_asker(low, high):
             number = int(input('Enter a number between ' + str(low) + ' and ' + str(high) + ' : '))
         
     print('Good job')
+        
+
+
 
 
 
