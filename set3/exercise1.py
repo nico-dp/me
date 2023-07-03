@@ -56,30 +56,27 @@ def stubborn_asker(low, high):
     number = int(input('Enter a number between ' + str(low) + ' and ' + str(high) + ' : '))
 
     while number < low  or number > high:
-        if low < number < high:
-            break
-        else:
-            number = int(input('Enter a number between ' + str(low) + ' and ' + str(high) + ' : '))
+        number = int(input('Enter a number between ' + str(low) + ' and ' + str(high) + ' : '))
         
     print('Good job')
 
 
 
-def not_number_rejector(message):
+def not_number_rejector():
     """Ask for a number repeatedly until actually given one.
 
     Ask for a number, and if the response is actually NOT a number
     (e.g. "cow", "six", "8!") then throw it out and ask for an actual number.
     When you do get a number, return it.
     """
+
     number = input('Please enter a number: ')
+
     while number.isdigit() == False: 
-        if number.isdigit() == True:
-            break
-        else:
-            number = input('Please enter a number: ')
+        number = input('Please enter a number: ')
     
-    return number
+    return int(number)
+
 
 
 def super_asker(low, high):
@@ -89,24 +86,12 @@ def super_asker(low, high):
     to make a function that does it all!
     """
 
-    while number.isdigit() == False: 
-        if number.isdigit() == True:
-            break
-        else:
-            number = input('Please enter a number: ')
-    
-    number = int(input('Enter a number between ' + str(low) + ' and ' + str(high) + ' : '))
+    number = input('Enter a number between ' + str(low) + ' and ' + str(high) + ': ')
 
-    while number < low  or number > high:
-        if low < number < high:
-            break
-        else:
-            number = int(input('Enter a number between ' + str(low) + ' and ' + str(high) + ' : '))
-        
+    while not number.isdigit() or int(number) < low or int(number) > high:
+        number = input('Invalid input. Enter a number between ' + str(low) + ' and ' + str(high) + ': ')
+
     print('Good job')
-        
-
-
 
 
 
