@@ -32,11 +32,29 @@ def advancedGuessingGame():
     """
 
     print("\nWelcome to the guessing game!")
-    print("A number between 0 and _ ?")
+    
+    print("Please enter the upper bound")
+    upperbound = not_number_rejector('I dont know why i need something in here but it doesnt seem to matter')
 
-  
+    print("Please enter the lower bound")
+    lowerbound = not_number_rejector('and if theres nothing here it breaks')
 
-    upperbound = not_number_rejector()
+    actualnumber = random.randint(lowerbound, upperbound)
+
+    guessed = False
+
+    while not guessed:
+        guessednumber = super_asker(lowerbound, upperbound)
+        print(f"You guessed {guessednumber},")
+        if guessednumber == actualnumber:
+            print(f"You got it!! It was {actualnumber}")
+            guessed = True
+        elif guessednumber < actualnumber:
+            print("Too small, try again :'(")
+        else:
+            print("Too big, try again :'(")
+    return "You got it!"
+
 
     # the tests are looking for the exact string "You got it!". Don't modify that!
 
