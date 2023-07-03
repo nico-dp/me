@@ -62,7 +62,7 @@ def stubborn_asker(low, high):
 
 
 
-def not_number_rejector():
+def not_number_rejector(message):
     """Ask for a number repeatedly until actually given one.
 
     Ask for a number, and if the response is actually NOT a number
@@ -91,7 +91,7 @@ def super_asker(low, high):
     while not number.isdigit() or int(number) < low or int(number) > high:
         number = input('Invalid input. Enter a number between ' + str(low) + ' and ' + str(high) + ': ')
 
-    print('Good job')
+    return int(number)
 
 
 
