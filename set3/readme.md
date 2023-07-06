@@ -16,3 +16,6 @@ Traceback (most recent call last):
     import matplotlib.pyplot as plt
 ModuleNotFoundError: No module named 'matplotlib'
 
+^^ I have now installed figured out that matplotlib was something i needed to install and have installed it as well as installing func_timeout and am now able to run tests.
+
+The tests are saying that stubborn_asker, not_number_rejector, and test_super_asker are all not working which i don't know why since they all pass the when i run it. It might just be a syntax error in the way i have written them and what the tests are looking for.
