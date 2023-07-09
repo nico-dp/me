@@ -37,10 +37,22 @@ def get_some_details():
          dictionary, you'll need integer indeces for lists, and named keys for
          dictionaries.
     """
+
+    
     json_data = open(LOCAL + "/lazyduck.json").read()
 
     data = json.loads(json_data)
-    return {"lastName": None, "password": None, "postcodePlusID": None}
+
+
+    lastname = data["results"][0]["name"]["last"] 
+    passcode = data["results"][0]["login"]["password"]
+    post = data["results"][0]["location"]["postcode"]
+    idvalue = data["results"][0]["id"]["value"]
+
+    post_id = int(post) + int(idvalue)
+
+    return {"lastName": lastname, "password": passcode, "postcodePlusID": post_id}
+
 
 
 def wordy_pyramid():
@@ -78,7 +90,29 @@ def wordy_pyramid():
     TIP: to add an argument to a URL, use: ?argName=argVal e.g. &wordlength=
     """
     pyramid = []
+    word_length = 3
+    new_word_length = 20
+    finished = False
+    while not finished:
+        if word_length <= 20:
+            url = f"https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={word_length}"
+            response = requests.get(url)
+            word_length += 2
+        
+            word = response.text
+            pyramid.append(str(word))
 
+        elif 20 <= word_length <= 38:
+            url = f"https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={new_word_length}"
+            response = requests.get(url)
+            word_length += 2
+            new_word_length -=2
+
+            word = response.text
+            pyramid.append(str(word))
+
+        else:
+            finished = True
     return pyramid
 
 
@@ -96,13 +130,27 @@ def pokedex(low=1, high=5):
          get very long. If you are accessing a thing often, assign it to a
          variable and then future access will be easier.
     """
-    id = 5
-    url = f"https://pokeapi.co/api/v2/pokemon/{id}"
-    r = requests.get(url)
-    if r.status_code is 200:
-        the_json = json.loads(r.text)
 
-    return {"name": None, "weight": None, "height": None}
+    name_list = []
+    height_list = []
+    weight_list = []
+
+    for id in range(low, high):
+        url = f"https://pokeapi.co/api/v2/pokemon/{id}"
+        r = requests.get(url)
+        if r.status_code is 200:
+            the_json = json.loads(r.text)
+            name = the_json["name"]
+            weight = the_json["weight"]
+            height = the_json["height"]
+
+            name_list.append(name)
+            weight_list.append(weight)
+            height_list.append(height)
+    
+    index_tallest = height_list.index(max(height_list))
+
+    return {"name": name_list[index_tallest], "weight": weight_list[index_tallest], "height": height_list[index_tallest]}
 
 
 def diarist():
@@ -122,7 +170,7 @@ def diarist():
 
     NOTE: this function doesn't return anything. It has the _side effect_ of modifying the file system
     """
-    pass
+    
 
 
 if __name__ == "__main__":
