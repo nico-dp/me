@@ -179,8 +179,7 @@ def diarist():
     with open('/Users/Nico/1161/me/set4/lasers.pew' , 'w') as lasers:
         lasers.write(f"Times the laser was turned on: {laser_on}\n")
         lasers.write(f"Times the laser was turned off: {laser_off}")
-    
-    print(laser_off , laser_on)
+
 
 if __name__ == "__main__":
     print(get_some_details())
