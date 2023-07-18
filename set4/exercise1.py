@@ -173,17 +173,14 @@ def diarist():
     
     trispoke = open('/Users/Nico/1161/me/set4/Trispokedovetiles(laser).gcode').read()
 
-    laser_off = 0
-    laser_on = 0
-
-    for line in trispoke:
-        laser_off += line.count("M10 P1")
-        laser_on += line.count("M11 P1")
+    laser_off = trispoke.count("M10 P1")
+    laser_on = trispoke.count("M11 P1")
 
     with open('/Users/Nico/1161/me/set4/lasers.pew' , 'w') as lasers:
         lasers.write(f"Times the laser was turned on: {laser_on}\n")
         lasers.write(f"Times the laser was turned off: {laser_off}")
-
+    
+    print(laser_off , laser_on)
 
 if __name__ == "__main__":
     print(get_some_details())
