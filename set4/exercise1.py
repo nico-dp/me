@@ -180,7 +180,7 @@ def diarist():
         laser_off += line.count("M10 P1")
         laser_on += line.count("M11 P1")
 
-    with open('/Users/Nico/1161/me/set4/' , 'w') as lasers:
+    with open('/Users/Nico/1161/me/set4/lasers.pew' , 'w') as lasers:
         lasers.write(f"Times the laser was turned on: {laser_on}\n")
         lasers.write(f"Times the laser was turned off: {laser_off}")
 
