@@ -260,8 +260,9 @@ def random_filler_text(number_of_words=200) -> str:
 
     my_dict = make_filler_text_dictionary()
     words = []
+    actual_number_of_words = number_of_words + 1
 
-    for i in range(1, number_of_words):
+    for i in range(1, actual_number_of_words):
         key = random.randint(3, 7)
         index = random.randint(0, 3)
 
