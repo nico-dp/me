@@ -291,7 +291,7 @@ def fast_filler(number_of_words=200) -> str:
 
     fname = "dict_cache.json"
 
-    return None
+    return str('I am too slow :/')
 
 
 if __name__ == "__main__":
