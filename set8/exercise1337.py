@@ -152,7 +152,8 @@ def set_it_on_fire(input_string="very naughty boy") -> str:
     TIP: make sure that you have a 🔥 on both ends of the string.
     """
 
-    input_list = list(input_string)
+    input_list_upper = str.upper(input_string)
+    input_list = list(input_list_upper)
     
     return f"🔥{'🔥'.join(input_list)}🔥"
 
