@@ -58,11 +58,11 @@ def stubborn_asker(low, high):
     while number < low  or number > high:
         number = int(input('Enter a number between ' + str(low) + ' and ' + str(high) + ' : '))
         
-    print('Good job')
+    return number
 
 
 
-def not_number_rejector(message):
+def not_number_rejector(number):
     """Ask for a number repeatedly until actually given one.
 
     Ask for a number, and if the response is actually NOT a number
