@@ -70,12 +70,12 @@ def not_number_rejector(number):
     When you do get a number, return it.
     """
 
-    number = input('Please enter a number: ')
+    number = str(input('Please enter a number: '))
 
     while number.isdigit() == False: 
         number = input('Please enter a number: ')
     
-    return int(number)
+    return number
 
 
 
@@ -91,7 +91,7 @@ def super_asker(low, high):
     while not number.isdigit() or int(number) < low or int(number) > high:
         number = input('Invalid input. Enter a number between ' + str(low) + ' and ' + str(high) + ': ')
 
-    return int(number)
+    return number
 
 
 

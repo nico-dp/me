@@ -34,17 +34,17 @@ def advancedGuessingGame():
     print("\nWelcome to the guessing game!")
     
     print("Please enter the upper bound")
-    upperbound = not_number_rejector('I dont know why i need something in here but it doesnt seem to matter')
+    upperbound = int(not_number_rejector('I dont know why i need something in here but it doesnt seem to matter'))
 
     print("Please enter the lower bound")
-    lowerbound = not_number_rejector('and if theres nothing here it breaks')
+    lowerbound = int(not_number_rejector('and if theres nothing here it breaks'))
 
     actualnumber = random.randint(lowerbound, upperbound)
 
     guessed = False
 
     while not guessed:
-        guessednumber = super_asker(lowerbound, upperbound)
+        guessednumber = int(super_asker(lowerbound, upperbound))
         print(f"You guessed {guessednumber},")
         if guessednumber == actualnumber:
             print(f"You got it!! It was {actualnumber}")
